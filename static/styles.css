@@ -2625,6 +2625,38 @@ figcaption {
     height: 100%;
     position: relative;
     overflow: hidden
+    
+}
+
+.proceed-button {
+    font-size: 15px;
+    font-weight: 400;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+    margin-top: 15px;
+    margin-left: -10px;
+    background-color: #161616; 
+    color: #dbdbdb;
+    padding: 12px 20px;
+    border: 1px solid #313131;  
+    border-radius: 15px; 
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center; 
+    justify-content: center; 
+    gap: 15px; 
+    transition: background-color 0.3s, color 0.3s, transform 0.3s, text-shadow 0.3s;
+    text-transform: uppercase;
+    white-space: nowrap;
+}
+
+.proceed-button .preloader_text-dot {
+    display: inline-block; 
+}
+
+.proceed-button:hover {
+    background-color: #1a161e;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    transform: scale(1.05);
 }
 
 .padding-global {
@@ -5907,7 +5939,6 @@ figcaption {
     --_theme---cursor-select-text: var(--_colors---swatch--black);
     --_theme---button-background: var(--_colors---swatch--light-grey);
     --_theme---button-text: var(--_colors---swatch--dark-grey);
-    --_theme---webflow-badge: var(--_colors---swatch--dark-grey);
     --_theme---heading: var(--_colors---swatch--light-grey)
 }
 
@@ -5923,7 +5954,6 @@ figcaption {
     --_theme---cursor-select-text: var(--_colors---swatch--light-grey);
     --_theme---button-background: var(--_colors---swatch--black);
     --_theme---button-text: var(--_colors---swatch--off-white);
-    --_theme---webflow-badge: var(--_colors---swatch--light-grey);
     --_theme---heading: var(--_colors---swatch--black)
 }
 
@@ -5939,7 +5969,6 @@ figcaption {
     --_theme---cursor-select-text: var(--_colors---swatch--spring-light);
     --_theme---button-background: var(--_colors---swatch--off-white);
     --_theme---button-text: var(--_colors---swatch--dark-grey);
-    --_theme---webflow-badge: var(--_colors---swatch--off-white);
     --_theme---heading: var(--_colors---swatch--spring-dark)
 }
 
@@ -5955,7 +5984,6 @@ figcaption {
     --_theme---cursor-select-text: var(--_colors---swatch--black);
     --_theme---button-background: var(--_colors---swatch--light-grey);
     --_theme---button-text: var(--_colors---swatch--dark-grey);
-    --_theme---webflow-badge: var(--_colors---swatch--dark-grey);
     --_theme---heading: var(--_colors---swatch--light-grey)
 }
 
@@ -5964,7 +5992,7 @@ figcaption {
     width: 100%;
     height: 100%;
     display: flex;
-    position: relative
+    position: relative;
 }
 
 .main_heading {
@@ -5973,7 +6001,6 @@ figcaption {
     position: absolute;
     top: 18rem;
     left: 8em;
-    overflow: hidden
 }
 
 .grid-layout {
@@ -5988,14 +6015,14 @@ figcaption {
     width: 100%;
     height: 100%;
     display: grid;
-    position: fixed
+    position: fixed;
 }
 
 .grid-layout-col {
     background-color: var(--_colors---swatch--orange);
     opacity: .05;
     width: 100%;
-    height: 100%
+    height: 100%;
 }
 
 .nav {
@@ -6010,7 +6037,7 @@ figcaption {
     grid-row-gap: 1.25em;
     color: var(--_theme---body-text);
     grid-template-rows: auto;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: repeat(11, 1fr) auto;
     grid-auto-columns: 1fr;
     align-items: start;
     width: 100%;
@@ -6022,9 +6049,12 @@ figcaption {
 
 .navbar_logo {
     pointer-events: auto;
+    width: 200px;
+    height: auto;
     height: 1.5rem;
     margin-left: 1.5em;
     position: absolute;
+    margin-top: -10px;
     top: 50%;
     transform: translateY(-25%)
 }
@@ -6041,7 +6071,9 @@ figcaption {
 .navbar_col.is-last {
     justify-content: flex-end;
     align-items: center;
-    padding-right: .5rem
+    padding-right: 18rem;
+    grid-column: 12;
+    justify-self: end;
 }
 
 .navbar_col.hide-mobile {
