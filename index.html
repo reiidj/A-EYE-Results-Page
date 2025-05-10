@@ -236,16 +236,15 @@
               0);transform:translate3d(0, 0%, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0,
               0);opacity:1">
               A-EYE: <br> AUTOMATED CATARACT DETECTION AND CLASSIFICATION TOOL
+              <a href="main.html">
+                <button class="proceed-button">
+                  <div class="dot bg-color-green"></div>
+                  Click to Proceed
+                </button>
+              </a>
             </h1>
-            <a href="main.html">
-              <button class="proceed-button">
-                <div class="dot bg-color-green"></div>
-                Click to Proceed
-              </button>
-            </a>
           </div>
           
-
           <div class="main_spline" id="spline-wrapper" style="opacity:0">
             <div class="main_spline-scene" data-animation-type="spline"
               data-spline-url="https://prod.spline.design/jsJh4fDj5cbMRzij/scene.splinecode" id="spline-bg"
@@ -257,6 +256,7 @@
               sizes="(max-width: 2808px) 100vw, 2808px" src="static/images/spline_placeholder.webp" style="opacity:1" />
           </div>
 
+          <!-- WRITE HERE ON MENU-ITEMS ONLY @MARK -->
           <div class="menu-item">
             <div class="menu-card_wrap">
               <div class="menu-card is-about">
@@ -321,7 +321,7 @@
           </div>
         </div>
 
-        <!-- <div class="color-switch" data-cursor="Switch colors"
+        <div class="color-switch" data-cursor="Switch colors"
           style="-webkit-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(-110%, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)">
           <div class="color-mode-light">
             <div class="color-switch_trigger" color-mode="light">
@@ -345,7 +345,7 @@
           </div>
           <div class="color-switch-trigger">
           </div>
-        </div> -->
+        </div>
       </header>
     </div>
     <div class="spline-notification" data-notification-3d="">
@@ -365,20 +365,20 @@
   <script src="static/js/transition.js" type="text/javascript"></script>
   <script src="static/js/animations.js" type="text/javascript"></script>
   <script src="static/js/spline.js" type="text/javascript"></script>
-  <!-- <script>
+  <script>
     $(document).ready(function (event) {
       $("body").prepend($("gtag"));
     });
-  </script> -->
+  </script>
 
   <!-- GSAP -->
   <script src="static/js/gsap.min.js"></script>
   <script src="static/js/scramble_text.js"></script>
 
-  <!-- iOs Spline Pageload Fix
+  <!-- iOs Spline Pageload Fix -->
   <script>
     document.addEventListener("DOMContentLoaded", (function () { function e() { const e = new KeyboardEvent("keydown", { key: "1", code: "Digit1", keyCode: 49, which: 49, bubbles: !0 }); document.dispatchEvent(e), console.log("Key press '1' event dispatched for Spline."), setTimeout((() => { const e = new KeyboardEvent("keyup", { key: "1", code: "Digit1", keyCode: 49, which: 49, bubbles: !0 }); document.dispatchEvent(e), console.log("Key release '1' event dispatched.") }), 100) } const o = document.querySelector(".spline-trigger-mobile"); o ? (console.log("Spline trigger found, adding click event listener."), o.addEventListener("click", e)) : console.log("No .spline-trigger-mobile found."), /iPhone|iPad|iPod|Android/.test(navigator.userAgent) && (console.log("Mobile/tablet detected - triggering keydown 1 in 1 sec..."), setTimeout(e, 1e3)) }));
-  </script> -->
+  </script>
 
   <!-- Color Mode Switch -->
   <script>
@@ -551,7 +551,7 @@
   <script>
     $(document).ready((function () { let o = $(".preloader-circle"), t = 2 * Math.PI * o.attr("r"); o.css({ "stroke-dasharray": t, "stroke-dashoffset": t, "transform-origin": "50% 50%", transform: "rotate(-90deg)", opacity: 0 }), gsap.to(o, { opacity: 1, duration: 0, delay: .5, onComplete: function () { gsap.to(o, { strokeDashoffset: t * (2 / 3), duration: 1, ease: "power2.out" }), gsap.to(o, { strokeDashoffset: t * (1 / 3), duration: 1, ease: "power2.out", delay: 1 }), gsap.to(o, { strokeDashoffset: 0, duration: 1, ease: "power2.out", delay: 2 }) } }) }));
   </script>
-  <!-- Menu About & Contact Close -->
+  <!-- Model About & Contact Close -->
   <script>
     document.addEventListener("DOMContentLoaded", (function () { const e = document.querySelectorAll(".menu-card_close"), n = document.querySelector(".menu_link.is-index"); e.length && n ? e.forEach((e => { e.addEventListener("click", (function () { n.click() })) })) : console.warn(".menu-card_close elements or .menu_link.is-index element not found.") }));
   </script>
