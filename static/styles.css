@@ -2633,8 +2633,7 @@ figcaption {
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
     margin-top: 15px;
     margin-left: -10px;
-    background-color: #161616; 
-    color: #dbdbdb;
+    background-color: transparent; 
     padding: 12px 20px;
     border: 1px solid #313131;  
     border-radius: 15px; 
@@ -3795,6 +3794,15 @@ figcaption {
     font-weight: var(--_headings---heading-m--font-weight);
     letter-spacing: var(--_headings---heading-m--letter-spacing);
     text-transform: uppercase
+}
+
+.disclaimer {
+    color: var(--_colors---swatch--grey);
+    bottom: 0;
+    font-size: 12px;
+    position: absolute;
+    margin-left: 1%;
+    margin-bottom: .5%;
 }
 
 .heading-style-64px {
@@ -5998,7 +6006,7 @@ figcaption {
     text-align: justify;
     width: 12rem;
     position: absolute;
-    top: 16rem;
+    top: 14rem;
     left: 8em;
 }
 
@@ -6076,7 +6084,7 @@ figcaption {
 .navbar_col.is-last {
     justify-content: flex-end;
     align-items: center;
-    padding-right: 18rem;
+    padding-right: 12rem;
     grid-column: 12;
     justify-self: end;
 }

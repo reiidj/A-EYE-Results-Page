@@ -55,7 +55,7 @@
       <div class="preloader_wrapper">
         <div class="preloader_select"
           style="-webkit-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 4rem, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);opacity:0">
-          <div class="preloader_button" data-spline-trigger="pageload" data-w-id="df6c3a0c-f11b-c7f7-59ba-7a17bd25c2aa"
+          <div class="preloader_button" data-spline-trigger="pageload" data-w-id="preload"
             scramble-btn="">
           </div>
         </div>
@@ -71,9 +71,9 @@
                 <img src="static/images/logo.svg" style="width: 50%;"/>
               </a>
             </div>
-            <div class="navbar_col is-title" style="grid-column: span 4; margin-left: -30px">
+            <div class="navbar_col is-title " style="grid-column: span 4; margin-left: -30px">
               <div class="text-size-regular" scramble-hover="" style="width: 100%;">
-                a-eye: cataract classification tool
+                a-eye: cataract SEVERITY CLASSIFICATION tool
               </div>
             </div>
             <div class="navbar_col" style="grid-column: 9; margin-left: 30px;">
@@ -110,6 +110,9 @@
 
       <header class="section-main" id="section_hero">
         <div class="main_container">
+          
+          <h6 class="heading-m disclaimer" scramble-hover="">Disclaimer: This system is intended for clinician use only. Self-Diagnosis is not promoted.</h6>
+
           <div class="main_spline" id="spline-wrapper" style="opacity:0">
             <div class="main_spline-scene" data-animation-type="spline"
               data-spline-url="https://prod.spline.design/jsJh4fDj5cbMRzij/scene.splinecode" id="spline-bg"
@@ -164,8 +167,107 @@
   </script>
   <!-- Scramble Pageload & Hover -->
   <script>
-    $(document).ready((function () { $("*:visible").not("[scramble-hover]").each((function () { const t = $(this); 0 === t.children().length && "" !== t.text().trim() && function (t) { const e = t.getBoundingClientRect(); return e.top >= 0 && e.left >= 0 && e.bottom <= (window.innerHeight || document.documentElement.clientHeight) && e.right <= (window.innerWidth || document.documentElement.clientWidth) }(this) && (function (t) { t.contents().filter((function () { return 3 === this.nodeType && "" !== this.nodeValue.trim() })).each((function () { const t = $(this).text(); $(this).replaceWith(`<span class="wrapped-text">${t}</span>`) })) }(t), t.find(".wrapped-text").each((function () { const t = $(this), e = t.text(); gsap.fromTo(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 } }, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 }, duration: 1, delay: .1, overwrite: !0 }) }))) })), $("[scramble-hover]").each((function () { let t = $(this), e = t.text(); t.data("originalText", e); let i = t.outerWidth(); t.data("originalWidth", i), t.css("width", i), t.data("isAnimating", !1), gsap.fromTo(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 } }, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: 1 }, duration: 1, delay: .1, overwrite: !0 }) })), $("[scramble-hover]").hover((function () { let t = $(this); if (t.data("isAnimating")) return; t.data("isAnimating", !0); let e = t.data("originalText"); gsap.to(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: .5 }, duration: .5, onComplete: function () { t.data("isAnimating", !1) } }) }), (function () { $(this).data("isAnimating", !1) })), $("[scramble-btn]").each((function () { let t = $(this).find("[scramble-hover]:first"); if (t.length) { let e = t.text(); t.data("originalText", e), t.data("isAnimating", !1) } })), $("[scramble-btn]").hover((function () { let t = $(this).find("[scramble-hover]:first"); if (t.length && !t.data("isAnimating")) { t.data("isAnimating", !0); let e = t.data("originalText"); gsap.to(t, { scrambleText: { text: e, chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>", speed: .5 }, duration: .5, onComplete: function () { t.data("isAnimating", !1) } }) } }), (function () { $(this).find("[scramble-hover]:first").data("isAnimating", !1) })) }));
-  </script>
+    $(document).ready(function() {
+        $("*:visible").not("[scramble-hover], .no-scramble").each(function() {
+            const t = $(this);
+            0 === t.children().length && "" !== t.text().trim() && function(t) {
+                const e = t.getBoundingClientRect();
+                return e.top >= 0 && e.left >= 0 && e.bottom <= (window.innerHeight || document.documentElement.clientHeight) && e.right <= (window.innerWidth || document.documentElement.clientWidth)
+            }(this) && (function(t) {
+                t.contents().filter(function() {
+                    return 3 === this.nodeType && "" !== this.nodeValue.trim()
+                }).each(function() {
+                    const t = $(this).text();
+                    $(this).replaceWith(`<span class="wrapped-text">${t}</span>`)
+                })
+            }(t), t.find(".wrapped-text").each(function() {
+                const t = $(this),
+                    e = t.text();
+                gsap.fromTo(t, {
+                    scrambleText: {
+                        text: e,
+                        chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
+                        speed: 1
+                    }
+                }, {
+                    scrambleText: {
+                        text: e,
+                        chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
+                        speed: 1
+                    },
+                    duration: 1,
+                    delay: .1,
+                    overwrite: !0
+                })
+            }))
+        }), $("[scramble-hover]").each(function() {
+            let t = $(this),
+                e = t.text();
+            t.data("originalText", e);
+            let i = t.outerWidth();
+            t.data("originalWidth", i), t.css("width", i), t.data("isAnimating", !1), gsap.fromTo(t, {
+                scrambleText: {
+                    text: e,
+                    chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
+                    speed: 1
+                }
+            }, {
+                scrambleText: {
+                    text: e,
+                    chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
+                    speed: 1
+                },
+                duration: 1,
+                delay: .1,
+                overwrite: !0
+            })
+        }), $("[scramble-hover]").hover(function() {
+            let t = $(this);
+            if (t.data("isAnimating")) return;
+            t.data("isAnimating", !0);
+            let e = t.data("originalText");
+            gsap.to(t, {
+                scrambleText: {
+                    text: e,
+                    chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
+                    speed: .5
+                },
+                duration: .5,
+                onComplete: function() {
+                    t.data("isAnimating", !1)
+                }
+            })
+        }, function() {
+            $(this).data("isAnimating", !1)
+        }), $("[scramble-btn]").each(function() {
+            let t = $(this).find("[scramble-hover]:first");
+            if (t.length) {
+                let e = t.text();
+                t.data("originalText", e), t.data("isAnimating", !1)
+            }
+        }), $("[scramble-btn]").hover(function() {
+            let t = $(this).find("[scramble-hover]:first");
+            if (t.length && !t.data("isAnimating")) {
+                t.data("isAnimating", !0);
+                let e = t.data("originalText");
+                gsap.to(t, {
+                    scrambleText: {
+                        text: e,
+                        chars: "abcdefghijklmnopqrstuvwxyz!@#$%^&*-_+=;:<>",
+                        speed: .5
+                    },
+                    duration: .5,
+                    onComplete: function() {
+                        t.data("isAnimating", !1)
+                    }
+                })
+            }
+        }, function() {
+            $(this).find("[scramble-hover]:first").data("isAnimating", !1)
+        })
+    });
+</script>
+
 
 
   <!-- Spline Performance -->
