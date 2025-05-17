@@ -46,6 +46,20 @@
             overflow: hidden;
           }
 
+          .button-container {
+            position: absolute;
+            bottom: 20px;
+            left: 0;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 40px;
+          }
+
+          .button-left, .button-right {
+            text-decoration: none;
+          }
+
 
         </style>
       </div>
@@ -126,13 +140,22 @@
             <!-- WRITE HERE @rei -->
               <p> write results page content here </p>
               <!-- make sure to incorporate randomizer algorithm that would either get positive/negative results -->
-              <a href="index.html">
+              <div class="button-container">
+              <a href="index.html" class="button-left">
                 <button class="proceed-button">
-                  <div class="dot bg-color-green"></div>
-                  analyze another image
+                  ANALYZE ANOTHER IMAGE
                 </button>
               </a>
+              <a href="index.html" class="button-right">
+                <button class="proceed-button">
+                  <div class="dot bg-color-green"></div>
+                  DOWNLOAD FULL REPORT 
+                </button>
+              </a>
+            </div>
           </div>
+
+          <!-- MAIN CONTENT END-->
 
       </div>
         </div>
