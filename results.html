@@ -299,9 +299,9 @@
                 </button>
               </a>
               <a href="index.html" class="button-right">
-                <button class="proceed-button">
+                <button class="proceed-button" onclick="openReport()">
                   <div class="dot bg-color-green"></div>
-                  DOWNLOAD FULL REPORT 
+                  DOWNLOAD FULL REPORT
                 </button>
               </a>
             </div>
@@ -326,6 +326,32 @@
       $("body").prepend($("gtag"));
     });
   </script> -->
+
+  <!-- place holder for new report -->
+  <script>
+    function openReport() {
+      const reportWindow = window.open('', '_blank'); // Open a new blank tab/window
+      reportWindow.document.write(`
+        <html>
+          <head>
+            <title>Full Report</title>
+            <style>
+              body { background: white; color: black; font-family: Arial, sans-serif; padding: 2rem; }
+            </style>
+          </head>
+          <body>
+            <h1>Full Report</h1>
+            <p>This is your placeholder full report content.</p>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>  
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+            <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          </body>
+        </html>
+      `);
+      reportWindow.document.close();
+    }
+  </script>
 
   <!-- GSAP -->
   <script src="static/js/gsap.min.js"></script>
