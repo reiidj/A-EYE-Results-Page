@@ -60,6 +60,118 @@
             text-decoration: none;
           }
 
+          .result-label {
+            text-align: center;
+            font-size: 1.2rem;
+            font-weight: medium;
+            color: white; /* Accent color for consistency */
+            margin-bottom: 1rem;
+            margin-top: 0.5rem;
+          }
+
+          .result-message {
+            color: #FFFFFF;
+            font-weight: thin;
+            font-size: 1rem;
+            margin-top: 20px;
+            text-align: left;
+            letter-spacing: 1px;
+          }
+
+          .recommendation {
+            text-align: left;
+            color: #8c8c8c;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;  
+          }
+
+          .uploaded-label {
+            text-align: center;
+            color: #8c8c8c;
+            font-size: 0.85rem;
+            margin-top: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+          }
+
+          .inner-box {
+            display: grid;
+            grid-template-columns: 2fr 1fr; /* Left text wider, right image smaller */
+            column-gap: 2rem;
+            align-items: start; /* Align items to top */
+            background-color: var(--_theme---card-background);
+            padding: 1.5rem;
+            /* border: 1px solid var(--_theme---body-background); guide if box is needed to be adjusted*/
+            width: 100%;
+            height: 300px; 
+            overflow-y: auto;    
+            max-width: 700px; /* limit width */
+            margin: 0 auto;
+          }
+
+          .info-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            color: white;
+          }
+
+          .uploaded-image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            color: #8c8c8c;
+          }
+
+          .uploaded-image-placeholder img {
+            width: 200px; /* adjust as needed */
+            height: 200px;
+            object-fit: contain;
+            margin-bottom: 0.5rem;
+          }
+
+          .additional-box {
+            background-color: #2e2e2e;
+            padding: 5px;
+            border-radius: 10px;
+            margin-top: 20px;
+            color: white;
+            font-size: 14px;
+          }
+
+          .note-text {
+            margin: 0;
+          }
+          
+          .left-side {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            gap: 1rem;
+            color: white;
+          }
+
+          /* severity and confidence score grid*/
+          .grid-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* 2 columns */
+            grid-template-rows: auto auto; /* 2 rows */
+            gap: 2px;
+            color:#8c8c8c;
+          }
+
+          .grid-item {
+              text-align: center;
+              margin-left: 5px;
+          }
+
+          .note-text {
+            font-style: italic;
+            color: white;
+          }
 
         </style>
       </div>
@@ -117,7 +229,7 @@
                   contact
                 </div>
               </div>
-            </div>
+            </div>  
           </div>
         </div>
       </div>
@@ -138,7 +250,47 @@
 
           <div class="main-content">
             <!-- WRITE HERE @rei -->
-              <p> write results page content here </p>
+              <h2 class="result-label">A-EYE CLASSIFICATION RESULT</h2>
+
+              <div class="inner-box">
+
+                <!-- Left side: text + additional box -->
+                <div class="left-side">
+
+                  <!-- confidence scores etc -->
+                  <div class="additional-box">
+                    <div class="grid-container">
+                      <div class="grid-item severity">
+                        <p>SEVERITY</p>
+                      </div>
+                      <div class="grid-item confidence">
+                        <p>CONFIDENCE SCORE</p>
+                      </div>
+                      <div class="grid-item note">
+                        <p class="note-text">---</p> <!--severity -->
+                      </div>
+                      <div class="grid-item empty">
+                        <p class="note-text">---</p> <!-- confidence score rating -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="info-text">
+                    <p class="result-message">THE UPLOADED EYE IMAGE IS INVALID.</p>
+                    <br>
+                    <p class="recommendation">Recommendation: Please upload an image with visible formation of cataract.</p>
+                  </div>
+                </div>
+
+                <!-- Right side: image -->
+                <div class="uploaded-image-container">
+                  <div class="uploaded-image-placeholder">
+                    <img src="static/images/sample image.png" alt="Uploaded eye image placeholder" />
+                  </div>
+                  <div class="uploaded-label">UPLOADED IMAGE</div>
+                </div>
+              </div>
+
               <!-- make sure to incorporate randomizer algorithm that would either get positive/negative results -->
               <div class="button-container">
               <a href="index.html" class="button-left">
