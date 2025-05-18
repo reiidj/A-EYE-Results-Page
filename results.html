@@ -341,13 +341,12 @@
     });
   </script> -->
 
-    // Function to generate random severity and confidence
   <script>
     // Function to generate random severity and confidence and update UI accordingly
     function generateDiagnosis() {
-      const severities = ['MATURE', 'IMMATURE'];
+      const severities = ['MATURE', 'IMMATURE', 'INVALID'];
       const severity = severities[Math.floor(Math.random() * severities.length)];
-      const confidence = (Math.random() * (97 - 93) + 93).toFixed(2) + '%';
+      const confidence = severity === 'INVALID' ? '---' : (Math.random() * (97 - 93) + 93).toFixed(2) + '%';
 
       const noteTexts = document.querySelectorAll('.note-text');
       if (noteTexts.length >= 2) {
@@ -365,6 +364,10 @@
       } else if (severity === 'IMMATURE') {
         messageElement.textContent = "The uploaded eye image exhibits characteristics consistent with an immature cataract.";
         recommendation.style.display = "none";
+      } else {
+        // INVALID case
+        messageElement.textContent = "THE UPLOADED EYE IMAGE IS INVALID.";
+        recommendation.style.display = "block";
       }
     }
 
@@ -391,6 +394,7 @@
       }
     }
   </script>
+
 
 
   <script>
