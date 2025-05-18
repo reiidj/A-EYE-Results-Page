@@ -98,16 +98,17 @@
 
           .inner-box {
             display: grid;
-            grid-template-columns: 2fr 1fr; /* Left text wider, right image smaller */
+            grid-template-columns: 2fr 1fr; 
             column-gap: 2rem;
-            align-items: start; /* Align items to top */
+            align-items: start; 
             background-color: var(--_theme---card-background);
             padding: 1.5rem;
-            /* border: 1px solid var(--_theme---body-background); guide if box is needed to be adjusted*/
+            padding-right: 0%;
+            /*border: 1px solid var(--_theme---body-background); guide if box is needed to be adjusted*/
             width: 100%;
-            height: 300px; 
+            height: 450px; 
             overflow-y: auto;    
-            max-width: 700px; /* limit width */
+            max-width: 800px; /* limit width */
             margin: 0 auto;
           }
 
@@ -127,8 +128,8 @@
           }
 
           .uploaded-image-placeholder img {
-            width: 200px; /* adjust as needed */
-            height: 200px;
+            width: 250px; /* adjust as needed */
+            height: 250px;
             object-fit: contain;
             margin-bottom: 0.5rem;
           }
@@ -160,7 +161,7 @@
             grid-template-columns: 1fr 1fr; /* 2 columns */
             grid-template-rows: auto auto; /* 2 rows */
             gap: 2px;
-            color:#8c8c8c;
+            color:#8c8c8c
           }
 
           .grid-item {
@@ -168,8 +169,10 @@
               margin-left: 5px;
           }
 
+        
+        /* severity and confidence score texts*/
           .note-text {
-            font-style: italic;
+            font-style: normal;
             color: white;
           }
 
@@ -248,8 +251,10 @@
               sizes="(max-width: 2808px) 100vw, 2808px" src="static/images/spline_placeholder.webp" style="opacity:1" />
           </div>
 
+
+          <!-- MAIN CONTENT START  -->
+
           <div class="main-content">
-            <!-- WRITE HERE @rei -->
               <h2 class="result-label">A-EYE CLASSIFICATION RESULT</h2>
 
               <div class="inner-box">
@@ -266,19 +271,25 @@
                       <div class="grid-item confidence">
                         <p>CONFIDENCE SCORE</p>
                       </div>
+
+                      <!--severity placeholder -->
                       <div class="grid-item note">
-                        <p class="note-text">---</p> <!--severity -->
+                        <p class="note-text">---</p> 
                       </div>
+
+                      <!-- confidence score rating plac holder -->
                       <div class="grid-item empty">
-                        <p class="note-text">---</p> <!-- confidence score rating -->
+                        <p class="note-text">---</p> 
                       </div>
                     </div>
                   </div>
 
                   <div class="info-text">
-                    <p class="result-message">THE UPLOADED EYE IMAGE IS INVALID.</p>
+                    <p id="resultMessage" class="result-message">THE UPLOADED EYE IMAGE IS INVALID.</p>
                     <br>
-                    <p class="recommendation">Recommendation: Please upload an image with visible formation of cataract.</p>
+                    <p id="recommendation" class="recommendation" style="display: none;">
+                      Recommendation: Please upload an image with visible formation of cataract.
+                    </p>
                   </div>
                 </div>
 
@@ -291,14 +302,14 @@
                 </div>
               </div>
 
-              <!-- make sure to incorporate randomizer algorithm that would either get positive/negative results -->
+              <!-- BUTTONS -->
               <div class="button-container">
               <a href="index.html" class="button-left">
                 <button class="proceed-button">
                   ANALYZE ANOTHER IMAGE
                 </button>
               </a>
-              <a href="index.html" class="button-right">
+              <a href="index.html" class="button-right">  
                 <button class="proceed-button" onclick="openReport()">
                   <div class="dot bg-color-green"></div>
                   DOWNLOAD FULL REPORT
@@ -308,6 +319,9 @@
           </div>
 
           <!-- MAIN CONTENT END-->
+           <!-- MAIN CONTENT END-->
+            <!-- MAIN CONTENT END-->
+             <!-- MAIN CONTENT END-->
 
       </div>
         </div>
@@ -327,7 +341,58 @@
     });
   </script> -->
 
-  <!-- place holder for new report -->
+    // Function to generate random severity and confidence
+  <script>
+    // Function to generate random severity and confidence and update UI accordingly
+    function generateDiagnosis() {
+      const severities = ['MATURE', 'IMMATURE'];
+      const severity = severities[Math.floor(Math.random() * severities.length)];
+      const confidence = (Math.random() * (97 - 93) + 93).toFixed(2) + '%';
+
+      const noteTexts = document.querySelectorAll('.note-text');
+      if (noteTexts.length >= 2) {
+        noteTexts[0].innerText = severity;    // First .note-text -> severity
+        noteTexts[1].innerText = confidence;  // Second .note-text -> confidence score
+      }
+
+      // Update resultMessage and recommendation based on severity
+      const messageElement = document.getElementById('resultMessage');
+      const recommendation = document.getElementById('recommendation');
+
+      if (severity === 'MATURE') {
+        messageElement.textContent = "The uploaded eye image exhibits characteristics consistent with a mature cataract.";
+        recommendation.style.display = "none";
+      } else if (severity === 'IMMATURE') {
+        messageElement.textContent = "The uploaded eye image exhibits characteristics consistent with an immature cataract.";
+        recommendation.style.display = "none";
+      }
+    }
+
+    // If redirected from main.html, generate diagnosis and update the message accordingly
+    if (document.referrer.includes('main.html')) {
+      generateDiagnosis();
+    } else {
+      // Fallback: if there's a "result" param, show messages accordingly (for direct navigation)
+      const queryParams = new URLSearchParams(window.location.search);
+      const result = queryParams.get('result');
+
+      const messageElement = document.getElementById('resultMessage');
+      const recommendation = document.getElementById('recommendation');
+
+      if (result === 'mature') {
+        messageElement.textContent = "The uploaded eye image exhibits characteristics consistent with a mature cataract.";
+        recommendation.style.display = "none";
+      } else if (result === 'immature') {
+        messageElement.textContent = "The uploaded eye image exhibits characteristics consistent with an immature cataract.";
+        recommendation.style.display = "none";
+      } else {
+        messageElement.textContent = "THE UPLOADED EYE IMAGE IS INVALID.";
+        recommendation.style.display = "block";
+      }
+    }
+  </script>
+
+
   <script>
     function openReport() {
       const reportWindow = window.open('', '_blank'); // Open a new blank tab/window
